@@ -35,7 +35,7 @@ class PikaClient(object):
         self.channel = None
 
         self._delivery_tag = 0
-        self.parameters = pika.URLParameters("amqp://guest:guest@wojiushishen:" + str(port) + "/%2F")
+        self.parameters = pika.URLParameters("amqp://guest:guest@hostname:" + str(port) + "/%2F")
 
     def connect(self):
         self.connection = TornadoConnection(self.parameters, on_open_callback=self.on_connected, stop_ioloop_on_close=False)
