@@ -393,7 +393,7 @@ if __name__ == "__main__":
     app=Application(room_handler, rp)
     app.listen(args.port, args.ip)
     
-    parameters = pika.URLParameters('amqp://guest:guest@wojiushishen:' + str(rp) +'/%2F')
+    parameters = pika.URLParameters('amqp://guest:guest@hostname' + str(rp) +'/%2F')
     connection = pika.BlockingConnection(parameters)
     channel = connection.channel()
     channel.exchange_declare(exchange='compute',type='fanout')
